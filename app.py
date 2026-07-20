@@ -49,12 +49,53 @@ html, body, [class*="css"] {font-family: 'Inter', sans-serif;}
 [data-testid="stMetric"] {background:#FFF;border:1px solid #DFE9F1;padding:14px;border-radius:14px;
  box-shadow:0 5px 16px rgba(18,54,84,.06)}
 .note {background:#FFF7DD;border-left:5px solid #D4A017;padding:12px 15px;border-radius:9px;color:#4A3A0A}
-.stTabs [data-baseweb="tab-list"] {gap:8px;flex-wrap:wrap;background:#D7E1EC;padding:.5rem;border-radius:13px}
-.stTabs [data-baseweb="tab"] {background:#0B2545!important;border:2px solid #0B2545!important;border-radius:9px!important;padding:9px 16px;color:#F3C84B!important;font-weight:850!important;box-shadow:0 3px 8px rgba(11,37,69,.14)}
-.stTabs [data-baseweb="tab"] p {color:#F3C84B!important;font-weight:850!important}
-.stTabs [data-baseweb="tab"]:hover {background:#123F69!important;border-color:#F3C84B!important}
-.stTabs [aria-selected="true"] {background:#123F69!important;color:#FFD85A!important;border:2px solid #F3C84B!important;box-shadow:0 0 0 2px rgba(243,200,75,.18)}
-.stTabs [aria-selected="true"] p {color:#FFD85A!important}
+.stTabs [data-baseweb="tab-list"] {
+ gap:10px!important;
+ flex-wrap:wrap!important;
+ background:#D7E1EC!important;
+ padding:10px!important;
+ border:1px solid #B8C8D8!important;
+ border-radius:14px!important;
+ box-shadow:0 4px 14px rgba(11,37,69,.12)!important;
+}
+.stTabs button[data-baseweb="tab"] {
+ flex:1 1 175px!important;
+ min-width:160px!important;
+ min-height:52px!important;
+ justify-content:center!important;
+ white-space:normal!important;
+ text-align:center!important;
+ background:#0B2545!important;
+ border:2px solid #F3C84B!important;
+ border-radius:10px!important;
+ padding:9px 13px!important;
+ color:#F3C84B!important;
+ box-shadow:0 3px 8px rgba(11,37,69,.22)!important;
+ transition:all .15s ease!important;
+}
+.stTabs button[data-baseweb="tab"] p {
+ color:#F3C84B!important;
+ -webkit-text-fill-color:#F3C84B!important;
+ font-size:.92rem!important;
+ line-height:1.18!important;
+ font-weight:850!important;
+}
+.stTabs button[data-baseweb="tab"]:hover {
+ background:#164E7A!important;
+ border-color:#FFF1AC!important;
+ transform:translateY(-1px)!important;
+}
+.stTabs button[data-baseweb="tab"][aria-selected="true"] {
+ background:linear-gradient(135deg,#F3C84B,#D4A017)!important;
+ border-color:#A97908!important;
+ box-shadow:0 4px 12px rgba(169,121,8,.35)!important;
+}
+.stTabs button[data-baseweb="tab"][aria-selected="true"] p {
+ color:#071A2F!important;
+ -webkit-text-fill-color:#071A2F!important;
+ font-weight:900!important;
+}
+.stTabs [data-baseweb="tab-highlight"] {display:none!important}
 .stButton button,.stDownloadButton button {background:#0B3B67!important;color:white!important;border:1px solid #0B3B67!important;border-radius:9px!important;font-weight:750!important}
 .stButton button:hover,.stDownloadButton button:hover {background:#D4A017!important;color:#071A2F!important;border-color:#D4A017!important}
 section[data-testid="stSidebar"] div[data-testid="stButton"] button {

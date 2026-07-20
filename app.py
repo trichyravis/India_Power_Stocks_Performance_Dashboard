@@ -49,9 +49,12 @@ html, body, [class*="css"] {font-family: 'Inter', sans-serif;}
 [data-testid="stMetric"] {background:#FFF;border:1px solid #DFE9F1;padding:14px;border-radius:14px;
  box-shadow:0 5px 16px rgba(18,54,84,.06)}
 .note {background:#FFF7DD;border-left:5px solid #D4A017;padding:12px 15px;border-radius:9px;color:#4A3A0A}
-.stTabs [data-baseweb="tab-list"] {gap:8px;flex-wrap:wrap;background:#DDE7F1;padding:.4rem;border-radius:13px}
-.stTabs [data-baseweb="tab"] {background:#FFF!important;border:1px solid #C8D6E5;border-radius:9px!important;padding:8px 16px;color:#173B55!important;font-weight:750}
-.stTabs [aria-selected="true"] {background:#0B3B67!important;color:white!important;border-color:#0B3B67!important}
+.stTabs [data-baseweb="tab-list"] {gap:8px;flex-wrap:wrap;background:#D7E1EC;padding:.5rem;border-radius:13px}
+.stTabs [data-baseweb="tab"] {background:#0B2545!important;border:2px solid #0B2545!important;border-radius:9px!important;padding:9px 16px;color:#F3C84B!important;font-weight:850!important;box-shadow:0 3px 8px rgba(11,37,69,.14)}
+.stTabs [data-baseweb="tab"] p {color:#F3C84B!important;font-weight:850!important}
+.stTabs [data-baseweb="tab"]:hover {background:#123F69!important;border-color:#F3C84B!important}
+.stTabs [aria-selected="true"] {background:#123F69!important;color:#FFD85A!important;border:2px solid #F3C84B!important;box-shadow:0 0 0 2px rgba(243,200,75,.18)}
+.stTabs [aria-selected="true"] p {color:#FFD85A!important}
 .stButton button,.stDownloadButton button {background:#0B3B67!important;color:white!important;border:1px solid #0B3B67!important;border-radius:9px!important;font-weight:750!important}
 .stButton button:hover,.stDownloadButton button:hover {background:#D4A017!important;color:#071A2F!important;border-color:#D4A017!important}
 div[data-testid="stSelectbox"] [data-baseweb="select"]>div {min-height:46px!important;background:#FFF!important;border:2px solid #0B3B67!important;border-radius:10px!important}
@@ -59,6 +62,19 @@ div[data-testid="stSelectbox"] [data-baseweb="select"] * {color:#0B2545!importan
 [data-baseweb="popover"] [role="listbox"] {background:#FFF!important;border:2px solid #0B3B67!important}
 [data-baseweb="popover"] [role="option"] {color:#0B2545!important;-webkit-text-fill-color:#0B2545!important;background:#FFF!important}
 [data-baseweb="popover"] [role="option"]:hover,[data-baseweb="popover"] [aria-selected="true"] {background:#0B3B67!important;color:#FFF!important;-webkit-text-fill-color:#FFF!important}
+/* Sidebar controls: gold labels, white fields and high-contrast navy values */
+section[data-testid="stSidebar"] label p {color:#F3C84B!important;-webkit-text-fill-color:#F3C84B!important;font-weight:800!important}
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"]>div {background:#FFF!important;border:2px solid #F3C84B!important}
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] span,
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] svg {color:#0B2545!important;-webkit-text-fill-color:#0B2545!important;fill:#0B2545!important;opacity:1!important}
+section[data-testid="stSidebar"] div[data-testid="stNumberInput"]>div {background:#FFF!important;border:2px solid #F3C84B!important;border-radius:10px!important;overflow:hidden}
+section[data-testid="stSidebar"] div[data-testid="stNumberInput"] input {background:#FFF!important;color:#0B2545!important;-webkit-text-fill-color:#0B2545!important;font-weight:800!important;opacity:1!important}
+section[data-testid="stSidebar"] div[data-testid="stNumberInput"] button {background:#E8EEF5!important;color:#0B2545!important;border-color:#CBD8E5!important}
+section[data-testid="stSidebar"] div[data-testid="stNumberInput"] button svg {fill:#0B2545!important;color:#0B2545!important;opacity:1!important}
+section[data-testid="stSidebar"] div[data-testid="stMultiSelect"] [data-baseweb="select"]>div {background:#FFF!important;border:2px solid #F3C84B!important;border-radius:10px!important}
+section[data-testid="stSidebar"] div[data-testid="stMultiSelect"] [data-baseweb="tag"] {background:#D4A017!important}
+section[data-testid="stSidebar"] div[data-testid="stMultiSelect"] [data-baseweb="tag"] span {color:#071A2F!important;-webkit-text-fill-color:#071A2F!important;font-weight:800!important}
+section[data-testid="stSidebar"] div[data-testid="stMultiSelect"] [data-baseweb="tag"] svg {fill:#071A2F!important;color:#071A2F!important}
 .profile-card {background:linear-gradient(135deg,#071A2F,#123B65);border:1px solid rgba(243,200,75,.42);border-radius:14px;padding:17px;margin:15px 0 8px;box-shadow:0 7px 20px rgba(0,0,0,.18)}
 .profile-card .name {color:#F3C84B!important;font-weight:850;font-size:1rem;margin:0 0 5px}
 .profile-card .title {color:#D7E9FA!important;font-size:.81rem;line-height:1.4;margin:0 0 8px}

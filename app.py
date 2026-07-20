@@ -79,6 +79,28 @@ section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="s
 section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] svg {
  color:#071A2F!important;fill:#071A2F!important;
 }
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] input,
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] input::placeholder,
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] p,
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] div[role="button"] {
+ color:#071A2F!important;
+ -webkit-text-fill-color:#071A2F!important;
+ caret-color:#071A2F!important;
+ font-weight:800!important;
+ opacity:1!important;
+}
+.selected-company-confirmation {
+ margin:-4px 0 10px;
+ padding:7px 10px;
+ background:#F3C84B;
+ border:1px solid #D4A017;
+ border-radius:8px;
+ color:#071A2F!important;
+ -webkit-text-fill-color:#071A2F!important;
+ font-size:.84rem;
+ font-weight:800;
+}
+.selected-company-confirmation * {color:#071A2F!important;-webkit-text-fill-color:#071A2F!important}
 section[data-testid="stSidebar"] div[data-testid="stNumberInput"]>div {background:#FFF!important;border:2px solid #F3C84B!important;border-radius:10px!important;overflow:hidden}
 section[data-testid="stSidebar"] div[data-testid="stNumberInput"] input {background:#FFF!important;color:#0B2545!important;-webkit-text-fill-color:#0B2545!important;font-weight:800!important;opacity:1!important}
 section[data-testid="stSidebar"] div[data-testid="stNumberInput"] button {background:#E8EEF5!important;color:#0B2545!important;border-color:#CBD8E5!important}
@@ -219,6 +241,10 @@ with st.sidebar:
     st.markdown("## ⚡ Analysis Controls")
     selected = st.multiselect("Companies", list(STOCKS), default=list(STOCKS))
     primary = st.selectbox("Detailed company", selected if selected else list(STOCKS))
+    st.markdown(
+        f'<div class="selected-company-confirmation">Selected: {primary}</div>',
+        unsafe_allow_html=True,
+    )
     base = st.number_input("Investment simulation (₹)", 10_000, 10_000_000, 100_000, 10_000)
     normalize = st.toggle("Normalize price chart", value=True)
     st.markdown("---")

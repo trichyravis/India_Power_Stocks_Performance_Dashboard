@@ -67,6 +67,18 @@ section[data-testid="stSidebar"] label p {color:#F3C84B!important;-webkit-text-f
 section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"]>div {background:#FFF!important;border:2px solid #F3C84B!important}
 section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] span,
 section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] svg {color:#0B2545!important;-webkit-text-fill-color:#0B2545!important;fill:#0B2545!important;opacity:1!important}
+/* Keep the selected company visible across Streamlit/BaseWeb versions.
+   The displayed value may be rendered as a div, p, or span. */
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] > div,
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] > div * {
+ color:#071A2F!important;
+ -webkit-text-fill-color:#071A2F!important;
+ font-weight:800!important;
+ opacity:1!important;
+}
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] [data-baseweb="select"] svg {
+ color:#071A2F!important;fill:#071A2F!important;
+}
 section[data-testid="stSidebar"] div[data-testid="stNumberInput"]>div {background:#FFF!important;border:2px solid #F3C84B!important;border-radius:10px!important;overflow:hidden}
 section[data-testid="stSidebar"] div[data-testid="stNumberInput"] input {background:#FFF!important;color:#0B2545!important;-webkit-text-fill-color:#0B2545!important;font-weight:800!important;opacity:1!important}
 section[data-testid="stSidebar"] div[data-testid="stNumberInput"] button {background:#E8EEF5!important;color:#0B2545!important;border-color:#CBD8E5!important}

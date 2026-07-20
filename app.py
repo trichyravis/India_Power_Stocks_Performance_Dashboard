@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 
 from datetime import date, timedelta
@@ -254,7 +255,16 @@ with tabs[0]:
                      "Net Margin":i.get("profitMargins",last.get("Net Margin",np.nan)),"Debt/Equity":last.get("Debt / Equity",np.nan),
                      "P/E":i.get("trailingPE",np.nan)})
     peer_df=pd.DataFrame(peer).set_index("Company")
-    st.dataframe(peer_df.style.format({"Market Cap (₹ Cr)":"{:,.0f}","Price (₹)":"{:,.2f}","5Y CAGR":"{:.2%}","ROE":"{:.2%}","Net Margin":"{:.2%}","Debt/Equity":"{:.2f}","P/E":"{:.2f}"}).background_gradient(subset=["5Y CAGR","ROE","Net Margin"],cmap="YlGn"),use_container_width=True)
+    # Keep table styling dependency-free for reliable cloud deployment.
+    peer_styler = peer_df.style.format({
+        "Market Cap (₹ Cr)":"{:,.0f}", "Price (₹)":"{:,.2f}",
+        "5Y CAGR":"{:.2%}", "ROE":"{:.2%}", "Net Margin":"{:.2%}",
+        "Debt/Equity":"{:.2f}", "P/E":"{:.2f}"
+    }).set_properties(
+        subset=["5Y CAGR", "ROE", "Net Margin"],
+        **{"background-color":"#EAF4E2", "color":"#173B2A", "font-weight":"700"}
+    )
+    st.dataframe(peer_styler, use_container_width=True)
     a,b=st.columns(2)
     with a:
         fig=px.bar(peer_df.reset_index(),x="Company",y="Market Cap (₹ Cr)",color="Company",color_discrete_map=COLORS,title="Market Capitalisation (₹ crore)")

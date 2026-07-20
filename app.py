@@ -57,6 +57,24 @@ html, body, [class*="css"] {font-family: 'Inter', sans-serif;}
 .stTabs [aria-selected="true"] p {color:#FFD85A!important}
 .stButton button,.stDownloadButton button {background:#0B3B67!important;color:white!important;border:1px solid #0B3B67!important;border-radius:9px!important;font-weight:750!important}
 .stButton button:hover,.stDownloadButton button:hover {background:#D4A017!important;color:#071A2F!important;border-color:#D4A017!important}
+section[data-testid="stSidebar"] div[data-testid="stButton"] button {
+ background:linear-gradient(135deg,#F3C84B,#D4A017)!important;
+ color:#071A2F!important;
+ -webkit-text-fill-color:#071A2F!important;
+ border:2px solid #F9DC79!important;
+ min-height:46px!important;
+ border-radius:11px!important;
+ font-weight:850!important;
+ box-shadow:0 5px 14px rgba(0,0,0,.22)!important;
+}
+section[data-testid="stSidebar"] div[data-testid="stButton"] button:hover {
+ background:#FFF1AC!important;
+ border-color:#FFF1AC!important;
+ transform:translateY(-1px);
+}
+section[data-testid="stSidebar"] div[data-testid="stButton"] button p {
+ color:#071A2F!important;-webkit-text-fill-color:#071A2F!important;font-weight:850!important;
+}
 div[data-testid="stSelectbox"] [data-baseweb="select"]>div {min-height:46px!important;background:#FFF!important;border:2px solid #0B3B67!important;border-radius:10px!important}
 div[data-testid="stSelectbox"] [data-baseweb="select"] * {color:#0B2545!important;-webkit-text-fill-color:#0B2545!important;font-weight:700!important}
 [data-baseweb="popover"] [role="listbox"] {background:#FFF!important;border:2px solid #0B3B67!important}
@@ -249,8 +267,12 @@ with st.sidebar:
     normalize = st.toggle("Normalize price chart", value=True)
     st.markdown("---")
     st.caption("Prices: Yahoo Finance · Financial statements: company filings aggregated by Yahoo Finance. Values may differ by reporting convention.")
-    if st.button("Refresh cached data", use_container_width=True):
-        st.cache_data.clear(); st.rerun()
+    cache_was_refreshed = st.session_state.pop("cache_was_refreshed", False)
+    refresh_label = "✅ Data Refreshed" if cache_was_refreshed else "↻ Refresh Cached Data"
+    if st.button(refresh_label, use_container_width=True):
+        st.cache_data.clear()
+        st.session_state["cache_was_refreshed"] = True
+        st.rerun()
     st.markdown(
         """<div class='profile-card'>
         <p class='name'>Prof. V. Ravichandran</p>
@@ -266,7 +288,7 @@ with st.sidebar:
 if not selected:
     st.warning("Select at least one company from the sidebar."); st.stop()
 
-st.markdown("""<div class="hero"><div class="eyebrow">The Mountain Path Academy · Equity Analytics</div><h1>India Power Stocks — Five-Year Analytics</h1>
+st.markdown(f"""<div class="hero"><div class="eyebrow">The Mountain Path Academy · Equity Analytics</div><h1>India Power Stocks — Five-Year Analytics ({start.year}–{end.year})</h1>
 <p>Market performance, risk, financial strength, profitability, valuation and working-capital intelligence in one classroom-ready dashboard.</p></div>""", unsafe_allow_html=True)
 
 try:
